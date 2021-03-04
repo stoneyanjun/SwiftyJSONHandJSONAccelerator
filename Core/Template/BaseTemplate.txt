@@ -15,15 +15,7 @@ import HandyJSON
   }
 
 {DECLARATION}
-/*
-{INITIALIZER_FUNCTION_DECLRATION}
-{INITIALISER_FUNCTION_ASSIGNMENT}
-{INITIALISER_FUNCTION_END}
-  {REQUIRED}init(from decoder: Decoder) throws {
-    let container = try decoder.container(keyedBy: CodingKeys.self)
-{INITIALIZER}
-  }
-*/
+
   mutating func mapping(mapper: HelpingMapper) {
 {MAPPING}
   }

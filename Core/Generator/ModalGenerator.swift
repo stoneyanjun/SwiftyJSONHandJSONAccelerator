@@ -77,7 +77,7 @@ public struct ModelGenerator {
                     } else {
                         let subClassType = value.arrayValue.first!.detailedValueType()
                         if subClassType == .object {
-                            let models = generateModelForJSON(JSONHelper.reduce(value.arrayValue), variableName, false, className)
+                            let models = generateModelForJSON(JSONHelper.reduce(value.arrayValue), variableName, false, isTopLevelObject ? "" : className)
                             modelFiles += models
                             let model = models.first
                             let classname = model?.fileName
@@ -87,7 +87,7 @@ public struct ModelGenerator {
                         }
                     }
                 case .object:
-                    let models = generateModelForJSON(value, variableName, false, className)
+                    let models = generateModelForJSON(value, variableName, false, isTopLevelObject ? "" : className)
                     let model = models.first
                     let typeName = model?.fileName
                     currentModel.generateAndAddComponentsFor(PropertyComponent(variableName, typeName!, stringConstantName, key, .objectType))
